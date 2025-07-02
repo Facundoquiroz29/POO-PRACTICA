@@ -6,6 +6,7 @@
 
 class Curso
 {
+private:
     char* Nombre;
     int CantCupo;
     Profesor profesor;
@@ -25,8 +26,8 @@ public:
 
     bool admiteInscripcion();
     void addAlumnos(Alumno* f);
-
-
+    bool ExistAlumno(Alumno *f);
+    void deleteAlumno(Alumno *f);
 
 
     void mostrarInformacion();

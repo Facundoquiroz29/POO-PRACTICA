@@ -46,11 +46,26 @@ bool Curso::admiteInscripcion()
     return this->CantCupo > 0;
 }
 
+bool Curso::ExistAlumno(Alumno *f) // cambiar variable por nLegajo
+{
+    if(f == nullptr)
+        return false;
+
+    for(int i=0; i<CantAlumnos; i++)
+    {
+        if(alumnos[i]== nullptr)
+            continue;
+        if(f->getNLegajo() == alumnos[i]->getNLegajo())
+            return true;
+    }
+    return false;
+}
+
 void Curso::addAlumnos(Alumno *f)
 {
     if(!admiteInscripcion())
     {
-       std::cout << "Error. no hay mas cupos. " << std::endl;
+        std::cout << "Error. no hay mas cupos. " << std::endl;
         return;
     } else {
         Alumno** aux = new Alumno*[CantAlumnos+1];
@@ -64,6 +79,32 @@ void Curso::addAlumnos(Alumno *f)
         std::cout << "Alumnos agregado. " << std::endl;
     }
 }
+
+void Curso::deleteAlumno(Alumno *f)
+{
+    if(!ExistAlumno(f)){
+        std::cout << "Alumno no existente." << std::endl;
+        return;
+    }
+    Alumno** aux = new Alumno*[CantAlumnos-1];
+    int j = 0;
+    for(int i=0; i<CantAlumnos; i++)
+    {
+        if(alumnos[i] == nullptr)
+            continue;
+        if(f->getNLegajo() != alumnos[i]->getNLegajo())
+        {
+            aux[j] = alumnos[i];
+            j++;
+        }
+    }
+    delete [] alumnos;
+    alumnos = aux;
+    CantAlumnos--;
+    std::cout << "Alumno eliminado. " << std::endl;
+}
+
+
 
 int Curso::getCantAlumnos() const
 {
