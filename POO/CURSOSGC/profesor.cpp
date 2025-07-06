@@ -4,7 +4,7 @@
 
 Profesor::Profesor() {}
 
-Profesor::Profesor(long dni, char *apellido, char *nombres, char *cuil) : Persona(dni, apellido, nombres)
+Profesor::Profesor(long dni,const char *apellido,const char *nombres,const char *cuil) : Persona(dni, apellido, nombres)
 {
     this->cuil = new char[strlen(cuil)+1];
     strcpy(this->cuil, cuil);
@@ -29,6 +29,10 @@ char *Profesor::getCuil() const
 void Profesor::setCuil(char *newCuil)
 {
     cuil = newCuil;
+}
+
+Profesor::~Profesor()
+{
 }
 
 

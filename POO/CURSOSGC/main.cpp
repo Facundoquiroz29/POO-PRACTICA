@@ -1,6 +1,5 @@
 #include "alumno.h"
 #include "profesor.h"
-#include "persona.h"
 #include "curso.h"
 
 #include <iostream>
@@ -26,8 +25,8 @@ int main()
 
     //CREAR CURSO
     cout << endl;
-    Curso* FCYT = new Curso("Reparacion y matenimiento de PC", 2);
-    FCYT->setProfesor(*p1);
+    Curso* FCYT = new Curso(73649503, "Reparacion y matenimiento de PC", 3);
+    FCYT->setProfesor(p1);
     FCYT->addAlumnos(a1);
     FCYT->addAlumnos(a2);
     FCYT->addAlumnos(a3);
@@ -35,6 +34,20 @@ int main()
     FCYT->mostrarInformacion();
     cout << endl;
     cout << endl;
+    cout << "Datos del alumno: " << endl;
+    for(int i = 0; i< FCYT->getCantAlumnos(); i++)
+    {
+        FCYT->getAlumnos()[i]->mostrarInformacion();
+    }
+
+
+    cout << endl;
+    cout << "ELIMINAMOS UN ALUMNO" << endl;
+    FCYT->deleteAlumno(a2);
+    FCYT->deleteAlumno(a3);
+
+    cout << endl;
+    FCYT->mostrarInformacion();
     cout << "Datos del alumno: " << endl;
     for(int i = 0; i< FCYT->getCantAlumnos(); i++)
     {

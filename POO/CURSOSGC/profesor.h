@@ -7,11 +7,13 @@ class Profesor : public Persona
     char* cuil;
 public:
     Profesor();
-    Profesor(long dni, char* apellido, char* nombres, char* cuil);
+    Profesor(long dni, const char *apellido, const char *nombres, const char *cuil);
 
     void mostrarInformacion();
     char *getCuil() const;
     void setCuil(char *newCuil);
+
+    ~Profesor();
 };
 
 #endif // PROFESOR_H

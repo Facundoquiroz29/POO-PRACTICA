@@ -1,10 +1,12 @@
 #include "curso.h"
 #include <cstring>
 #include <iostream>
+
 Curso::Curso() {}
 
-Curso::Curso(char* Nombre, int CantCupo)
+Curso::Curso(long ID,const char* Nombre, int CantCupo)
 {
+    this->ID = ID;
     this->Nombre = new char[strlen(Nombre)+1];
     strcpy(this->Nombre, Nombre);
 
@@ -31,14 +33,15 @@ void Curso::setCantCupo(int newCantCupo)
     CantCupo = newCantCupo;
 }
 
-Profesor Curso::getProfesor() const
+Profesor *Curso::getProfesor() const
 {
     return profesor;
 }
 
-void Curso::setProfesor(const Profesor &newProfesor)
+void Curso::setProfesor(const Profesor* newProfesor)
 {
-    profesor = newProfesor;
+    this->profesor = new Profesor(*newProfesor);
+
 }
 
 bool Curso::admiteInscripcion()
@@ -46,43 +49,41 @@ bool Curso::admiteInscripcion()
     return this->CantCupo > 0;
 }
 
-bool Curso::ExistAlumno(Alumno *f) // cambiar variable por nLegajo
+bool Curso::ExistAlumno(char* Nlegajo) // cambiar variable por nLegajo
 {
-    if(f == nullptr)
+    if(Nlegajo == nullptr)
         return false;
 
     for(int i=0; i<CantAlumnos; i++)
     {
-        if(alumnos[i]== nullptr)
+        if(alumnos[i] == nullptr)
             continue;
-        if(f->getNLegajo() == alumnos[i]->getNLegajo())
+        if(Nlegajo == alumnos[i]->getNLegajo())
             return true;
     }
     return false;
 }
 
-void Curso::addAlumnos(Alumno *f)
+bool Curso::addAlumnos(Alumno *f)
 {
     if(!admiteInscripcion())
-    {
-        std::cout << "Error. no hay mas cupos. " << std::endl;
-        return;
-    } else {
-        Alumno** aux = new Alumno*[CantAlumnos+1];
-        for(int i = 0; i<CantAlumnos; i++)
-            aux[i] = alumnos[i];
-        aux[CantAlumnos] = f;
-        delete [] alumnos;
-        alumnos = aux;
-        CantAlumnos++;
-        CantCupo--;
-        std::cout << "Alumnos agregado. " << std::endl;
-    }
+        return false;
+    Alumno** aux = new Alumno*[CantAlumnos+1];
+    for(int i = 0; i<CantAlumnos; i++)
+        aux[i] = alumnos[i];
+    aux[CantAlumnos] = f;
+
+    delete [] alumnos;
+
+    alumnos = aux;
+    CantAlumnos++;
+    CantCupo--;
+    return true;
 }
 
 void Curso::deleteAlumno(Alumno *f)
 {
-    if(!ExistAlumno(f)){
+    if(!ExistAlumno(f->getNLegajo())){
         std::cout << "Alumno no existente." << std::endl;
         return;
     }
@@ -101,6 +102,7 @@ void Curso::deleteAlumno(Alumno *f)
     delete [] alumnos;
     alumnos = aux;
     CantAlumnos--;
+    CantCupo++;
     std::cout << "Alumno eliminado. " << std::endl;
 }
 
@@ -121,9 +123,29 @@ Alumno **Curso::getAlumnos() const
 void Curso::mostrarInformacion()
 {
     std::cout << "--RESUMEN CURSO--\n";
+    std::cout << "ID: " << ID << std:: endl;
     std::cout << "  Nombre: " << Nombre << " / " << "Cupos disponibles: " << CantCupo << std::endl;
     std::cout << "  Cantidad de alumnos: " << CantAlumnos << std::endl;
-    std::cout << " Profesor: " << getProfesor().getNombres()<<" "<< getProfesor().getApellido() << std::endl;
- }
+    std::cout << " Profesor: " << profesor->getNombres() << " " << profesor->getApellido() << std::endl;
+}
+
+Curso::~Curso()
+{
+    if(alumnos != nullptr)
+    {
+        for(int i = 0; i < CantAlumnos; i++)
+            delete alumnos[i];
+        delete [] alumnos;
+        alumnos = nullptr;
+    }
+
+    if(profesor != nullptr)
+    {
+        delete [] profesor;
+        profesor = nullptr;
+    }
+
+}
+
 
 

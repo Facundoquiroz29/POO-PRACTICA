@@ -3,7 +3,7 @@
 
 Persona::Persona() {}
 
-Persona::Persona(long dni, char *apellido, char *nombres)
+Persona::Persona(long dni,const char *apellido,const char *nombres)
 {
     this->dni = dni;
     this->apellido = new char[strlen(apellido)+1];
@@ -41,3 +41,6 @@ void Persona::setNombres(char *newNombres)
 {
     nombres = newNombres;
 }
+
+Persona::~Persona()
+{}

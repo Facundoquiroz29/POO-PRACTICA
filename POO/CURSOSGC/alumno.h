@@ -8,12 +8,14 @@ private:
     char* nLegajo;
 public:
     Alumno();
-    Alumno(long dni, char* apellido, char* nombres, char* nLegajo);
+    Alumno(long dni,const char *apellido, const char *nombres, const char* nLegajo);
 
     void mostrarInformacion();
 
     char *getNLegajo() const;
     void setNLegajo(char *newNLegajo);
+
+    ~Alumno();
 };
 
 #endif // ALUMNO_H

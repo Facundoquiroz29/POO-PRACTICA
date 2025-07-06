@@ -4,7 +4,7 @@
 
 Alumno::Alumno() {}
 
-Alumno::Alumno(long dni, char *apellido, char *nombres, char* nLegajo) : Persona(dni, apellido, nombres)
+Alumno::Alumno(long dni,const char *apellido, const char *nombres, const char* nLegajo) : Persona(dni, apellido, nombres)
 {
     this->nLegajo = new char[strlen(nLegajo)+1];
     strcpy(this->nLegajo, nLegajo);
@@ -29,4 +29,8 @@ char *Alumno::getNLegajo() const
 void Alumno::setNLegajo(char *newNLegajo)
 {
     nLegajo = newNLegajo;
+}
+
+Alumno::~Alumno()
+{
 }

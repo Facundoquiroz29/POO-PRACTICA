@@ -56,14 +56,12 @@ SOURCES       = ../../alumno.cpp \
 		../../curso.cpp \
 		../../main.cpp \
 		../../persona.cpp \
-		../../profesor.cpp \
-		../../universidad.cpp 
+		../../profesor.cpp 
 OBJECTS       = alumno.o \
 		curso.o \
 		main.o \
 		persona.o \
-		profesor.o \
-		universidad.o
+		profesor.o
 DIST          = /home/facudev/Qt/6.8.3/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/facudev/Qt/6.8.3/gcc_64/mkspecs/common/unix.conf \
 		/home/facudev/Qt/6.8.3/gcc_64/mkspecs/common/linux.conf \
@@ -294,13 +292,11 @@ DIST          = /home/facudev/Qt/6.8.3/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../CURSOSGC.pro alumno.h \
 		curso.h \
 		persona.h \
-		profesor.h \
-		universidad.h ../../alumno.cpp \
+		profesor.h ../../alumno.cpp \
 		../../curso.cpp \
 		../../main.cpp \
 		../../persona.cpp \
-		../../profesor.cpp \
-		../../universidad.cpp
+		../../profesor.cpp
 QMAKE_TARGET  = CURSOSGC
 DESTDIR       = 
 TARGET        = CURSOSGC
@@ -834,13 +830,6 @@ persona.o: ../../persona.cpp ../../persona.h
 profesor.o: ../../profesor.cpp ../../profesor.h \
 		../../persona.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o profesor.o ../../profesor.cpp
-
-universidad.o: ../../universidad.cpp ../../universidad.h \
-		../../curso.h \
-		../../alumno.h \
-		../../persona.h \
-		../../profesor.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o universidad.o ../../universidad.cpp
 
 ####### Install
 

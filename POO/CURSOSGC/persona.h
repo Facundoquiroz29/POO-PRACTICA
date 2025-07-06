@@ -8,7 +8,7 @@ class Persona
     char* nombres;
 public:
     Persona();
-    Persona(long dni, char* apellido, char* nombres);
+    Persona(long dni, const char *apellido, const char *nombres);
 
     virtual void mostrarInformacion() = 0;
 
@@ -18,6 +18,8 @@ public:
     void setApellido(char *newApellido);
     char *getNombres() const;
     void setNombres(char *newNombres);
+
+    virtual ~Persona();
 };
 
 #endif // PERSONA_H
