@@ -13,6 +13,7 @@ private:
     Profesor* profesor = nullptr;
     Alumno** alumnos = nullptr;
     int CantAlumnos = 0;
+
 public:
     Curso();
     Curso(long ID, const char *Nombre, int CantCupo);
@@ -28,7 +29,7 @@ public:
     bool admiteInscripcion();
     bool addAlumnos(Alumno* f);
     bool ExistAlumno(char* Nlegajo);
-    void deleteAlumno(Alumno *f);
+    bool deleteAlumno(Alumno *f);
 
 
     void mostrarInformacion();

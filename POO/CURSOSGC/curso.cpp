@@ -81,11 +81,10 @@ bool Curso::addAlumnos(Alumno *f)
     return true;
 }
 
-void Curso::deleteAlumno(Alumno *f)
+bool Curso::deleteAlumno(Alumno *f)
 {
     if(!ExistAlumno(f->getNLegajo())){
-        std::cout << "Alumno no existente." << std::endl;
-        return;
+        return false;
     }
     Alumno** aux = new Alumno*[CantAlumnos-1];
     int j = 0;
@@ -103,7 +102,7 @@ void Curso::deleteAlumno(Alumno *f)
     alumnos = aux;
     CantAlumnos--;
     CantCupo++;
-    std::cout << "Alumno eliminado. " << std::endl;
+    return true;
 }
 
 
