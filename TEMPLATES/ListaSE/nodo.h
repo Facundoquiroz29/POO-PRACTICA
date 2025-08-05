@@ -13,7 +13,7 @@ public:
     Nodo(T dato);
     T getDato() const;
     void setDato(const T &newDato);
-    Nodo<T> *getNext();
+    Nodo<T> *getNext() const;
     void setNext(Nodo<T> *newNext);
 };
 

@@ -13,8 +13,8 @@ public:
     void agregarFinal(T dato);
     void agregarOrdenado(T dato);
     bool eliminarDato(T dato);
-    bool contieneDato(T dato) const;
     //void mostrarDatos();
+    bool contieneDato(T dato) const;
     bool listaVacia() const;
     ~ListaSE();
 };

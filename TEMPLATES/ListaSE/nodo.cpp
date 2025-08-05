@@ -25,7 +25,7 @@ void Nodo<T>::setDato(const T &newDato)
 
 
 template<class T>
-Nodo<T> *Nodo<T>::getNext()
+Nodo<T> *Nodo<T>::getNext() const
 {
     return next;
 }
