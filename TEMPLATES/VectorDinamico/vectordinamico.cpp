@@ -24,7 +24,7 @@ void VectorDinamico<P>::adddato(P date)
 template<class P>
 void VectorDinamico<P>::adddatoindice(P date, int index)
 {
-    if(!busqindex(index))
+    if(index < 0 || index > this->size)
         return;
     P* aux = new P[this->size + 1];
     int j = 0;

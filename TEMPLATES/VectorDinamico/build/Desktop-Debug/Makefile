@@ -801,7 +801,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/facudev/Qt/6.8.3/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.h ../../vectordinamico.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../main.cpp ../../mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../main.cpp ../../mainwindow.cpp ../../vectordinamico.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.ui $(DISTDIR)/
 
 
@@ -1449,6 +1449,45 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../vectordinamico.h \
 		../../vectordinamico.cpp \
 		ui_mainwindow.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtCore/QVariant \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/QApplication \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qapplication.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/QLineEdit \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qframe.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtGui/qtextcursor.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtGui/qtextdocument.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtGui/qtextformat.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtGui/qpen.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtGui/qtextoption.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/QListWidget \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qlistwidget.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qlistview.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtGui/qvalidator.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtCore/qregularexpression.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qslider.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qstyle.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/QMenuBar \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qmenubar.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qmenu.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/QPushButton \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/QSpinBox \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qspinbox.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/QStatusBar \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qstatusbar.h \
+		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/QWidget \
 		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/QMessageBox \
 		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qmessagebox.h \
 		/home/facudev/Qt/6.8.3/gcc_64/include/QtWidgets/qdialog.h \

@@ -19,8 +19,8 @@ public:
     ~MainWindow();
 
 private:
-    void on_pushButtonAdd_clicked(); // Botones para agregar
-    void on_pushButtonDelete_clicked(); // botones para eliminar
+    void agregar();// Botones para agregar
+    void eliminar(); // botones para eliminar
 
 private:
     Ui::MainWindow *ui;

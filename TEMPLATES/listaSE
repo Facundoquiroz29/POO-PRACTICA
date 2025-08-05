@@ -1,0 +1,106 @@
+#ifndef LISTASE_H
+#define LISTASE_H
+
+#include <iostream>
+using namespace std;
+
+// Clase Nodo separada
+template <typename T>
+class Nodo {
+public:
+    T dato;
+    Nodo<T>* next;
+
+    Nodo(T d) : dato(d), next(nullptr) {}
+};
+
+// Clase ListaSE
+template <typename T>
+class ListaSE {
+private:
+    Nodo<T>* cabeza;
+
+public:
+    // Constructor
+    ListaSE() : cabeza(nullptr) {}
+
+    // Destructor
+    ~ListaSE() {
+        while (cabeza != nullptr) {
+            Nodo<T>* temp = cabeza;
+            cabeza = cabeza->next;
+            delete temp;
+        }
+    }
+
+    // Insertar al inicio
+    void insertarInicio(const T& valor) {
+        Nodo<T>* nuevo = new Nodo<T>(valor);
+        nuevo->next = cabeza;
+        cabeza = nuevo;
+    }
+
+    // Insertar al final
+    void insertarFinal(const T& valor) {
+        Nodo<T>* nuevo = new Nodo<T>(valor);
+        if (cabeza == nullptr) {
+            cabeza = nuevo;
+        } else {
+            Nodo<T>* temp = cabeza;
+            while (temp->next != nullptr) {
+                temp = temp->next;
+            }
+            temp->next = nuevo;
+        }
+    }
+
+    // Eliminar un elemento
+    bool eliminar(const T& valor) {
+        Nodo<T>* actual = cabeza;
+        Nodo<T>* anterior = nullptr;
+
+        while (actual != nullptr) {
+            if (actual->dato == valor) {
+                if (anterior == nullptr) {
+                    cabeza = actual->next;
+                } else {
+                    anterior->next = actual->next;
+                }
+                delete actual;
+                return true;
+            }
+            anterior = actual;
+            actual = actual->next;
+        }
+        return false;
+    }
+
+    // Buscar un elemento
+    bool contiene(const T& valor) const {
+        Nodo<T>* temp = cabeza;
+        while (temp != nullptr) {
+            if (temp->dato == valor)
+                return true;
+            temp = temp->next;
+        }
+        return false;
+    }
+
+    // Mostrar lista
+    void mostrar() const {
+        Nodo<T>* temp = cabeza;
+        while (temp != nullptr) {
+            cout << temp->dato << " -> ";
+            temp = temp->next;
+        }
+        cout << "NULL" << endl;
+    }
+
+    // Verificar si está vacía
+    bool estaVacia() const {
+        return cabeza == nullptr;
+    }
+};
+
+#endif // LISTASE_H
+

@@ -29,7 +29,7 @@ public:
     QListWidget *listWidget;
     QLineEdit *lineEdit;
     QSpinBox *spinBox;
-    QPushButton *on_pushButtonAdd_clicked;
+    QPushButton *pushButtonAdd;
     QPushButton *pushButtonDelete;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -50,9 +50,9 @@ public:
         spinBox = new QSpinBox(centralwidget);
         spinBox->setObjectName("spinBox");
         spinBox->setGeometry(QRect(140, 140, 44, 27));
-        on_pushButtonAdd_clicked = new QPushButton(centralwidget);
-        on_pushButtonAdd_clicked->setObjectName("on_pushButtonAdd_clicked");
-        on_pushButtonAdd_clicked->setGeometry(QRect(370, 140, 88, 26));
+        pushButtonAdd = new QPushButton(centralwidget);
+        pushButtonAdd->setObjectName("pushButtonAdd");
+        pushButtonAdd->setGeometry(QRect(370, 140, 88, 26));
         pushButtonDelete = new QPushButton(centralwidget);
         pushButtonDelete->setObjectName("pushButtonDelete");
         pushButtonDelete->setGeometry(QRect(470, 140, 88, 26));
@@ -73,7 +73,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        on_pushButtonAdd_clicked->setText(QCoreApplication::translate("MainWindow", "agregar", nullptr));
+        pushButtonAdd->setText(QCoreApplication::translate("MainWindow", "agregar", nullptr));
         pushButtonDelete->setText(QCoreApplication::translate("MainWindow", "eliminar", nullptr));
     } // retranslateUi
 
