@@ -58,7 +58,7 @@ bool ListaSE<T>::eliminarDato(T dato)
     if(!this->contieneDato(dato))
         return false;
     Nodo<T>* actual= cabeza;
-    Nodo<T>* anterior;
+    Nodo<T>* anterior = nullptr;
     Nodo<T>* aux;
     while(actual != nullptr && actual->getDato() != dato) // buscamos
     {
@@ -69,7 +69,7 @@ bool ListaSE<T>::eliminarDato(T dato)
     {
         aux = actual;
         cabeza = cabeza->getNext();
-        delete aux;;
+        delete aux;
         return true;
     } else if((actual!= nullptr) && (anterior != nullptr)) // eliminamos cualquier dato.
     {
